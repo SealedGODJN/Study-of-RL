@@ -70,6 +70,14 @@ def choose_action(state, q_table):
         action_name = state_actions.idxmax()  # 贪婪模式
     return action_name
 
+# In line 70:change argmax() to idxmax()
+# The current behaviour of 'Series.argmax' is deprecated, use 'idxmax'
+# instead.
+# The behavior of 'argmax' will be corrected to return the positional
+# maximum in the future. For now, use 'series.values.argmax' or
+# 'np.argmax(np.array(values))' to get the position of the maximum
+# row.
+
 # 4、环境反馈 S_, R
 
 # S_:下一个state
