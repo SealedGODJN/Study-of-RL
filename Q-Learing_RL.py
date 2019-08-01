@@ -67,7 +67,7 @@ def choose_action(state, q_table):
     if(np.random.uniform() > EPSILON) or (state_actions.all() == 0):  # 非贪婪 or 这个state还没有探索过
         action_name = np.random.choice(ACTIONS)
     else:
-        action_name = state_actions.argmax()  # 贪婪模式
+        action_name = state_actions.idxmax()  # 贪婪模式
     return action_name
 
 # 4、环境反馈 S_, R
