@@ -100,7 +100,7 @@ def update_env(S,episode,step_counter):
     #This is how environment be updated
     env_list = ['-']*(N_STATES-1) +['T'] # '------T' our environment
     if S == 'terminal':
-        interaction = 'Episode %s:total_steps = $s' % (episode+1,step_counter)
+        interaction = 'Episode %s: total_steps = %s' % (episode+1,step_counter)
         print('\r{}'.format(interaction),end='')
         time.sleep(2)
         print('\r                       ',end='')
@@ -123,7 +123,7 @@ def rl():
             S_, R = get_env_feedback(S,A) # 实施行为并得到环境的反馈
             q_predict = q_table.loc[S,A] # 估算的（状态-行为）值
             if S_ != 'terminal':
-                q_target = R +GAMMA * q_talbe.iloc[S_,:].max() # 实际的（状态-行为）值（回合没结束）
+                q_target = R +GAMMA * q_table.iloc[S_,:].max() # 实际的（状态-行为）值（回合没结束）
             else:
                 q_target = R # 实际的（状态-行为）值（回合结束）
                 is_terminated = True # terminate this episode
