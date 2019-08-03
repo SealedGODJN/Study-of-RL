@@ -26,6 +26,7 @@
 
 import sys
 
+sys.path.append('C:\\ProgramData\\Anaconda3\\Lib')
 sys.path.append('C:\\Users\\HJN\\AppData\\Local\\conda\\conda\\envs\\tensorflow')
 sys.path.append('E:\\software Design\\python\\workset\\Q-Learning\\2、Q-learning_maze')
 
