@@ -150,3 +150,8 @@ if __name__ == "__main__":
     q_table = rl()
     print('\r\nQ-table:\n')
     print(q_table)
+
+# 由于刚开始使用版本控制，不熟悉各种操作，
+# 前一次提交的comment信息是属于maze_env.py的。
+# 我将重新提交一次，更新comment信息。
+# 2019.8.3
