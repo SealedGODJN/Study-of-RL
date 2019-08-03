@@ -9,6 +9,7 @@ import pandas as pd
 
 
 class QLearningTable:
+    # 初始化
     def __init__(self, actions, learning_rate=0.01, reward_decay=0.9, e_greedy=0.9):
         self.actions = actions  # a list
         self.lr = learning_rate
@@ -16,6 +17,7 @@ class QLearningTable:
         self.epsilon = e_greedy
         self.q_table = pd.DataFrame(columns=self.actions, dtype=np.float64)
 
+    # 选行为
     def choose_action(self, observation):
         self.check_state_exist(observation)
         # action selection
@@ -29,6 +31,7 @@ class QLearningTable:
             action = np.random.choice(self.actions)
         return action
 
+    # 学习更新参数
     def learn(self, s, a, r, s_):
         self.check_state_exist(s_)
         q_predict = self.q_table.loc[s, a]
@@ -38,6 +41,7 @@ class QLearningTable:
             q_target = r  # next state is terminal
         self.q_table.loc[s, a] += self.lr * (q_target - q_predict)  # update
 
+    # 检测state是否存在
     def check_state_exist(self, state):
         if state not in self.q_table.index:
             # append new state to q table
