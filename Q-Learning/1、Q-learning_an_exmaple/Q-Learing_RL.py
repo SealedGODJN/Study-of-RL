@@ -118,6 +118,8 @@ def update_env(S,episode,step_counter):
         print('\r{}'.format(interaction),end='')
         time.sleep(FRESH_TIME)
 
+# 6、强化学习主循环
+
 def rl():
     q_table = build_q_table(N_STATES,ACTIONS) # 初始化 q_table
     for episode in range(MAX_EPISODES): # 回合
