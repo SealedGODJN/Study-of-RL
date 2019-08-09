@@ -27,7 +27,7 @@ loss = tf.reduce_mean(tf.square(y-y_data))
 
 # 4、传播误差
 
-optimizer = tf.train.GradientDescentOptimizer(0.001)
+optimizer = tf.train.GradientDescentOptimizer(0.001) # 学习率越低，参数要达到准确的数值，则所需的回合数越多
 train = optimizer.minimize(loss)
 
 # 5、训练
