@@ -3,7 +3,7 @@
 # editor:hjn
 
 # Topic:To illustrate how tensorflow use code 
-# to execute the struction constructed by us.
+# to execute the struction constructed by myself.
 
 # 1、创建数据
 
@@ -27,7 +27,7 @@ loss = tf.reduce_mean(tf.square(y-y_data))
 
 # 4、传播误差
 
-optimizer = tf.train.GradientDescentOptimizer(0.5)
+optimizer = tf.train.GradientDescentOptimizer(0.001)
 train = optimizer.minimize(loss)
 
 # 5、训练
@@ -38,7 +38,7 @@ init = tf.global_variables_initializer() # 替换成这样
 sess = tf.Session() # 创建会话
 sess.run(init) # Very important
 
-for step in range(201):
+for step in range(200001):
     sess.run(train)
-    if step % 20 == 0:
+    if step % 20000 == 0:
         print(step, sess.run(Weights), sess.run(biases))
